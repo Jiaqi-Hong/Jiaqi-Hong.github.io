@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jiaqi Hong — Research</title>
+  <meta name="description" content="Jiaqi Hong — researcher in judgment and decision-making. Interactive-narrative experiments on choice under uncertainty, risk, and time pressure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --surface: #ffffff;
+      --surface-2: #f3efe8;
+      --text: #1f2328;
+      --muted: #5b6470;
+      --line: #e5ded3;
+      --accent: #3f6b7d;      /* grey-heron slate */
+      --accent-2: #b98a54;    /* warm sand */
+      --accent-soft: #e8f0f2;
+      --shadow: 0 1px 2px rgba(31,35,40,.06), 0 8px 24px rgba(31,35,40,.06);
+      --radius: 14px;
+      --maxw: 940px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171a;
+        --surface: #1c2024;
+        --surface-2: #22272c;
+        --text: #e8eaed;
+        --muted: #a2acb6;
+        --line: #2c333a;
+        --accent: #7db3c6;
+        --accent-2: #d6a86e;
+        --accent-soft: #1e2a30;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    header.nav {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(1.4) blur(8px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 22px; }
+    .nav-links a { color: var(--muted); font-size: 15px; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    @media (max-width: 620px) { .nav-links { gap: 14px; font-size: 14px; } .nav-links a:nth-child(4) { display:none; } }
+
+    /* Hero */
+    .hero { padding: 72px 0 40px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+    @media (max-width: 720px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 12px; }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 0 0 16px; }
+    .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 34ch; margin: 0 0 24px; }
+    .avatar {
+      width: 172px; height: 172px; border-radius: 50%;
+      object-fit: cover; border: 4px solid var(--surface);
+      box-shadow: var(--shadow);
+      image-rendering: pixelated;
+      background: var(--surface-2);
+    }
+    @media (max-width: 720px) { .avatar { width: 120px; height: 120px; } }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      border: 1px solid var(--line); color: var(--text); background: var(--surface);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    @media (prefers-color-scheme: dark) { .btn.primary { color: #0e1417; } }
+
+    /* Sections */
+    section { padding: 44px 0; border-top: 1px solid var(--line); }
+    section:first-of-type { border-top: none; }
+    .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; }
+    .section-head h2 { font-size: 1.7rem; margin: 0; }
+    .section-head .num { color: var(--accent-2); font-family: "Fraunces", serif; font-size: 1rem; font-weight: 600; }
+    p { margin: 0 0 16px; }
+    .prose { max-width: 68ch; }
+
+    /* Interests tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .tag { padding: 7px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 500; }
+
+    /* Project card */
+    .project {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .project-media { position: relative; aspect-ratio: 16 / 7; overflow: hidden; background: var(--surface-2); }
+    .project-media img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: pixelated; }
+    .project-media .ribbon {
+      position: absolute; top: 14px; left: 14px;
+      background: color-mix(in srgb, var(--accent) 92%, black 8%); color: #fff;
+      font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px;
+    }
+    .project-body { padding: 24px 26px 28px; }
+    .project-body h3 { font-size: 1.4rem; margin: 0 0 6px; }
+    .project-body .sub { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+    .meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 20px 0 22px; }
+    @media (max-width: 640px) { .meta-grid { grid-template-columns: repeat(2, 1fr); } }
+    .meta { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
+    .meta .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+    .meta .v { font-weight: 600; font-size: 15px; }
+    .thumbstrip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    .thumbstrip img { width: 100%; border-radius: 10px; border: 1px solid var(--line); image-rendering: pixelated; display: block; }
+    @media (max-width: 640px) { .thumbstrip { grid-template-columns: 1fr; } }
+
+    /* Publications */
+    .pub { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .pub:last-child { border-bottom: none; }
+    .pub .title { font-weight: 600; }
+    .pub .venue { color: var(--muted); font-size: 15px; }
+    .placeholder-note {
+      background: var(--accent-soft); border: 1px dashed var(--accent);
+      border-radius: 10px; padding: 14px 16px; color: var(--muted); font-size: 14.5px;
+    }
+
+    /* Contact */
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 10px; border: 1px solid var(--line);
+      background: var(--surface); color: var(--text); font-weight: 500; font-size: 15px;
+    }
+    .contact-links a:hover { text-decoration: none; box-shadow: var(--shadow); }
+
+    footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; text-align: center; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <span class="brand">Jiaqi Hong</span>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Judgment &amp; Decision-Making Research</p>
+          <h1>Jiaqi Hong</h1>
+          <p class="lead">I study how people make decisions under uncertainty, risk, and time pressure — using interactive, narrative-driven experiments.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#research">Explore my research →</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <img class="avatar" src="assets/player_v21.png" alt="Jiaqi Hong" />
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-head"><span class="num">01</span><h2>About</h2></div>
+        <div class="prose">
+          <p>I'm a researcher working at the intersection of <strong>behavioral science</strong> and <strong>decision-making</strong>. My work asks how people choose when the stakes are high, information is incomplete, and the clock is running — and how the way a decision is <em>framed and experienced</em> shapes what they do.</p>
+          <p>To study this, I build immersive experimental paradigms that place participants inside realistic, consequential scenarios rather than abstract gambles. This lets me measure not just <em>what</em> people choose, but how quickly, how they manage limited resources, and when they persist versus give up.</p>
+          <p class="placeholder-note">✎ <strong>Fill me in:</strong> add a sentence on your affiliation, program, and advisor/lab (e.g. “I'm a PhD student in Psychology at [University], working with [Lab].”). Tell me the details and I'll drop them in.</p>
+        </div>
+      </section>
+
+      <!-- RESEARCH -->
+      <section id="research">
+        <div class="section-head"><span class="num">02</span><h2>Research interests</h2></div>
+        <div class="prose">
+          <p>My research connects classic questions in judgment and decision-making to rich, interactive tasks. Broad themes:</p>
+        </div>
+        <div class="tags">
+          <span class="tag">Decision-making under uncertainty</span>
+          <span class="tag">Risk perception</span>
+          <span class="tag">Sequential &amp; time-pressured choice</span>
+          <span class="tag">Resource management &amp; trade-offs</span>
+          <span class="tag">Information framing</span>
+          <span class="tag">Narrative &amp; interactive experimental methods</span>
+          <span class="tag">Behavioral data &amp; reaction time</span>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-head"><span class="num">03</span><h2>Featured project</h2></div>
+        <article class="project">
+          <div class="project-media">
+            <img src="assets/scene_01_v21.png" alt="SL-2B — The Typhoon Crossing, opening scene" />
+            <span class="ribbon">Experimental Study</span>
+          </div>
+          <div class="project-body">
+            <h3>The Typhoon Crossing (SL-2B)</h3>
+            <p class="sub">An interactive-narrative experiment on evacuation decision-making under an approaching disaster.</p>
+            <p>Participants play through a fictional journey: two siblings must cross fourteen leagues of river, marsh, and mountain to reach a shelter station before the typhoon <em>Grey Heron</em> makes landfall. At each scene they choose one of four actions, trading off <strong>progress, energy,</strong> and <strong>supplies</strong> while a pace-flag marks how far ahead of the storm they are. The task captures every choice, its reaction time, resource changes, and moments of withdrawal.</p>
+            <div class="meta-grid">
+              <div class="meta"><div class="k">Design</div><div class="v">2 × 2 between-subjects</div></div>
+              <div class="meta"><div class="k">Factors</div><div class="v">Journey · Information</div></div>
+              <div class="meta"><div class="k">Platform</div><div class="v">PsychoPy</div></div>
+              <div class="meta"><div class="k">Measures</div><div class="v">Choice · RT · Resources</div></div>
+            </div>
+            <p>Conditions cross <strong>journey length</strong> (Long vs. Short) with <strong>information availability</strong> (Hidden vs. Visible map signal), letting me isolate how uncertainty and horizon length reshape risk-taking and persistence. The study runs a full consent → practice → task → debrief flow, with participant-controlled data retention.</p>
+            <div class="thumbstrip">
+              <img src="assets/prologue_v21.png" alt="SL-2B prologue scene" />
+              <img src="assets/epilogue_living_room_v28.png" alt="SL-2B epilogue scene" />
+            </div>
+            <p style="margin-top:20px">
+              <a class="btn" href="https://github.com/Jiaqi-Hong/ait_-_sl-2b">View the code &amp; materials on GitHub →</a>
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+        <div class="section-head"><span class="num">04</span><h2>Publications &amp; talks</h2></div>
+        <div class="pub">
+          <div class="title">The Typhoon Crossing: An interactive-narrative paradigm for studying evacuation decisions <span class="venue">— in preparation</span></div>
+          <div class="venue">Hong, J. (2026). Working manuscript.</div>
+        </div>
+        <div style="margin-top:18px" class="placeholder-note">
+          ✎ <strong>Add your publications here.</strong> Send me your list (or a Google Scholar / ORCID link) and I'll format each entry with authors, year, venue, and links. I've left one placeholder entry above as the pattern to follow.
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-head"><span class="num">05</span><h2>Contact</h2></div>
+        <div class="prose">
+          <p>I'm happy to connect about research, collaborations, or my experimental materials.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:your-email@example.com">✉ Email</a>
+          <a href="https://github.com/Jiaqi-Hong">GitHub</a>
+          <a href="#" data-placeholder="scholar">Google Scholar</a>
+          <a href="#" data-placeholder="orcid">ORCID</a>
+          <a href="#" data-placeholder="linkedin">LinkedIn</a>
+        </div>
+        <p class="placeholder-note" style="margin-top:18px">✎ <strong>Fill me in:</strong> your public email, and the real URLs for Scholar / ORCID / LinkedIn (or tell me which to remove).</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <p>© <span id="yr"></span> Jiaqi Hong · Built with GitHub Pages</p>
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
