@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jiaqi Hong — Research</title>
-  <meta name="description" content="Jiaqi Hong — researcher in judgment and decision-making. Interactive-narrative experiments on choice under uncertainty, risk, and time pressure." />
+  <meta name="description" content="Jiaqi Hong — high school researcher in experimental psychology and cognitive science. Decision-making, goal pursuit, persistence, and behavior under uncertainty." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -62,10 +62,10 @@
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .brand { font-family: "Fraunces", serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
-    .nav-links { display: flex; gap: 22px; }
+    .nav-links { display: flex; gap: 20px; }
     .nav-links a { color: var(--muted); font-size: 15px; font-weight: 500; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
-    @media (max-width: 620px) { .nav-links { gap: 14px; font-size: 14px; } .nav-links a:nth-child(4) { display:none; } }
+    @media (max-width: 680px) { .nav-links { gap: 12px; font-size: 13.5px; } .nav-links a:nth-child(4), .nav-links a:nth-child(5) { display:none; } }
 
     /* Hero */
     .hero { padding: 72px 0 40px; }
@@ -73,7 +73,7 @@
     @media (max-width: 720px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
     .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 12px; }
     .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 0 0 16px; }
-    .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 34ch; margin: 0 0 24px; }
+    .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 36ch; margin: 0 0 24px; }
     .avatar {
       width: 172px; height: 172px; border-radius: 50%;
       object-fit: cover; border: 4px solid var(--surface);
@@ -106,6 +106,13 @@
     .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
     .tag { padding: 7px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 500; }
 
+    /* Awards */
+    .award { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .award:last-child { border-bottom: none; }
+    .award .yr-badge { flex: 0 0 auto; font-family: "Fraunces", serif; font-weight: 600; color: var(--accent-2); font-size: 15px; min-width: 46px; }
+    .award .body .t { font-weight: 600; }
+    .award .body .d { color: var(--muted); font-size: 15px; }
+
     /* Project card */
     .project {
       background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
@@ -136,10 +143,6 @@
     .pub:last-child { border-bottom: none; }
     .pub .title { font-weight: 600; }
     .pub .venue { color: var(--muted); font-size: 15px; }
-    .placeholder-note {
-      background: var(--accent-soft); border: 1px dashed var(--accent);
-      border-radius: 10px; padding: 14px 16px; color: var(--muted); font-size: 14.5px;
-    }
 
     /* Contact */
     .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -160,6 +163,7 @@
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
+        <a href="#honors">Honors</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
@@ -172,9 +176,9 @@
     <div class="hero">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">Judgment &amp; Decision-Making Research</p>
+          <p class="eyebrow">Experimental Psychology &amp; Cognitive Science</p>
           <h1>Jiaqi Hong</h1>
-          <p class="lead">I study how people make decisions under uncertainty, risk, and time pressure — using interactive, narrative-driven experiments.</p>
+          <p class="lead">I study how people make decisions, pursue goals, and respond to uncertainty over time — using interactive, narrative-driven experiments.</p>
           <div class="cta-row">
             <a class="btn primary" href="#research">Explore my research →</a>
             <a class="btn" href="#contact">Get in touch</a>
@@ -189,9 +193,9 @@
       <section id="about">
         <div class="section-head"><span class="num">01</span><h2>About</h2></div>
         <div class="prose">
-          <p>I'm a researcher working at the intersection of <strong>behavioral science</strong> and <strong>decision-making</strong>. My work asks how people choose when the stakes are high, information is incomplete, and the clock is running — and how the way a decision is <em>framed and experienced</em> shapes what they do.</p>
-          <p>To study this, I build immersive experimental paradigms that place participants inside realistic, consequential scenarios rather than abstract gambles. This lets me measure not just <em>what</em> people choose, but how quickly, how they manage limited resources, and when they persist versus give up.</p>
-          <p class="placeholder-note">✎ <strong>Fill me in:</strong> add a sentence on your affiliation, program, and advisor/lab (e.g. “I'm a PhD student in Psychology at [University], working with [Lab].”). Tell me the details and I'll drop them in.</p>
+          <p>Hello! I'm Jiaqi Hong, a high school researcher interested in experimental psychology and cognitive science — particularly how people make decisions, pursue goals, and respond to uncertainty over time.</p>
+          <p>My work brings together behavioral research, computational modeling, and experimental design to study the processes behind persistence, strategy choice, and withdrawal. I'm especially interested in building clear, testable models that connect psychological theory with real decision behavior.</p>
+          <p>This website is a space for my research projects, notes, and ongoing work.</p>
         </div>
       </section>
 
@@ -203,18 +207,51 @@
         </div>
         <div class="tags">
           <span class="tag">Decision-making under uncertainty</span>
-          <span class="tag">Risk perception</span>
-          <span class="tag">Sequential &amp; time-pressured choice</span>
-          <span class="tag">Resource management &amp; trade-offs</span>
-          <span class="tag">Information framing</span>
-          <span class="tag">Narrative &amp; interactive experimental methods</span>
+          <span class="tag">Goal pursuit &amp; persistence</span>
+          <span class="tag">Strategy choice &amp; withdrawal</span>
+          <span class="tag">Risk &amp; time-pressured choice</span>
+          <span class="tag">Computational modeling</span>
+          <span class="tag">Experimental design</span>
           <span class="tag">Behavioral data &amp; reaction time</span>
+        </div>
+      </section>
+
+      <!-- HONORS -->
+      <section id="honors">
+        <div class="section-head"><span class="num">03</span><h2>Honors &amp; awards</h2></div>
+        <div class="award">
+          <div class="yr-badge">2026</div>
+          <div class="body">
+            <div class="t">International Psychology Olympiad</div>
+            <div class="d">Highest Distinction</div>
+          </div>
+        </div>
+        <div class="award">
+          <div class="yr-badge">2026</div>
+          <div class="body">
+            <div class="t">British Psychology Olympiad</div>
+            <div class="d">Medal Grand Slam · Global Gold Medalist</div>
+          </div>
+        </div>
+        <div class="award">
+          <div class="yr-badge">2026</div>
+          <div class="body">
+            <div class="t">Berkeley Psychology Tournament</div>
+            <div class="d">Medal Grand Slam · Quadruple Gold Medalist · National Champion</div>
+          </div>
+        </div>
+        <div class="award">
+          <div class="yr-badge">2026</div>
+          <div class="body">
+            <div class="t">Einhorn-Hogarth New Investigator Award</div>
+            <div class="d">Candidate</div>
+          </div>
         </div>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects">
-        <div class="section-head"><span class="num">03</span><h2>Featured project</h2></div>
+        <div class="section-head"><span class="num">04</span><h2>Featured project</h2></div>
         <article class="project">
           <div class="project-media">
             <img src="assets/scene_01_v21.png" alt="SL-2B — The Typhoon Crossing, opening scene" />
@@ -235,8 +272,9 @@
               <img src="assets/prologue_v21.png" alt="SL-2B prologue scene" />
               <img src="assets/epilogue_living_room_v28.png" alt="SL-2B epilogue scene" />
             </div>
-            <p style="margin-top:20px">
+            <p style="margin-top:20px; display:flex; flex-wrap:wrap; gap:12px;">
               <a class="btn" href="https://github.com/Jiaqi-Hong/ait_-_sl-2b">View the code &amp; materials on GitHub →</a>
+              <a class="btn" href="https://doi.org/10.5281/zenodo.21943450">Archived on Zenodo (DOI) →</a>
             </p>
           </div>
         </article>
@@ -244,30 +282,25 @@
 
       <!-- PUBLICATIONS -->
       <section id="publications">
-        <div class="section-head"><span class="num">04</span><h2>Publications &amp; talks</h2></div>
+        <div class="section-head"><span class="num">05</span><h2>Publications &amp; archives</h2></div>
         <div class="pub">
-          <div class="title">The Typhoon Crossing: An interactive-narrative paradigm for studying evacuation decisions <span class="venue">— in preparation</span></div>
-          <div class="venue">Hong, J. (2026). Working manuscript.</div>
-        </div>
-        <div style="margin-top:18px" class="placeholder-note">
-          ✎ <strong>Add your publications here.</strong> Send me your list (or a Google Scholar / ORCID link) and I'll format each entry with authors, year, venue, and links. I've left one placeholder entry above as the pattern to follow.
+          <div class="title"><a href="https://doi.org/10.5281/zenodo.21943450">The Typhoon Crossing (SL-2B): An interactive-narrative paradigm for evacuation decision-making</a></div>
+          <div class="venue">Hong, J. (2026). Zenodo. <a href="https://doi.org/10.5281/zenodo.21943450">https://doi.org/10.5281/zenodo.21943450</a></div>
         </div>
       </section>
 
       <!-- CONTACT -->
       <section id="contact">
-        <div class="section-head"><span class="num">05</span><h2>Contact</h2></div>
+        <div class="section-head"><span class="num">06</span><h2>Contact</h2></div>
         <div class="prose">
           <p>I'm happy to connect about research, collaborations, or my experimental materials.</p>
         </div>
         <div class="contact-links">
-          <a href="mailto:your-email@example.com">✉ Email</a>
+          <a href="mailto:jiaqi.hong777777@gmail.com">✉ Email</a>
           <a href="https://github.com/Jiaqi-Hong">GitHub</a>
-          <a href="#" data-placeholder="scholar">Google Scholar</a>
-          <a href="#" data-placeholder="orcid">ORCID</a>
-          <a href="#" data-placeholder="linkedin">LinkedIn</a>
+          <a href="https://orcid.org/0009-0001-7093-4402">ORCID</a>
+          <a href="https://www.linkedin.com/in/jiaqi-hong-9032a3335/">LinkedIn</a>
         </div>
-        <p class="placeholder-note" style="margin-top:18px">✎ <strong>Fill me in:</strong> your public email, and the real URLs for Scholar / ORCID / LinkedIn (or tell me which to remove).</p>
       </section>
     </div>
   </main>
