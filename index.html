@@ -133,9 +133,41 @@
     .meta { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
     .meta .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
     .meta .v { font-weight: 600; font-size: 15px; }
-    .thumbstrip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
-    .thumbstrip img { width: 100%; border-radius: 10px; border: 1px solid var(--line); image-rendering: pixelated; display: block; }
-    @media (max-width: 640px) { .thumbstrip { grid-template-columns: 1fr; } }
+    /* Scene gallery (horizontal scroll-snap carousel) */
+    .gallery { position: relative; margin-top: 10px; }
+    .gallery-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .gallery-head .label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-2); font-weight: 600; }
+    .gallery-head .hint { font-size: 13px; color: var(--muted); }
+    .gallery-track {
+      display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; padding: 4px 2px 14px; -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
+    }
+    .gallery-track::-webkit-scrollbar { height: 8px; }
+    .gallery-track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+    .gallery-track::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    .slide {
+      flex: 0 0 78%; scroll-snap-align: center; position: relative;
+      border-radius: 12px; overflow: hidden; border: 1px solid var(--line);
+      background: var(--surface-2); box-shadow: var(--shadow);
+    }
+    @media (max-width: 640px) { .slide { flex-basis: 88%; } }
+    .slide img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+    .slide .cap {
+      position: absolute; left: 12px; bottom: 12px;
+      background: color-mix(in srgb, #000 62%, transparent); color: #fff;
+      font-size: 12.5px; font-weight: 600; letter-spacing: .02em;
+      padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(2px);
+    }
+    .gallery-nav { display: flex; gap: 8px; }
+    .gallery-nav button {
+      width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line);
+      background: var(--surface); color: var(--text); cursor: pointer; font-size: 16px;
+      line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .gallery-nav button:hover { transform: translateY(-1px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .gallery-nav button:active { transform: translateY(0); }
 
     /* Abstract */
     .abstract { background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 12px; padding: 20px 22px; margin: 20px 0 22px; }
@@ -270,9 +302,28 @@
               <p>This study extends the Drift Diffusion Model (DDM) and Leaky Competing Accumulator (LCA) models for action initiation by introducing the State-Dependent Leak, Two-Boundary (SL-2B) sequential sampling model for dynamic strategy regulation. The SL-2B model is advanced in three primary directions. First, bounded recurrent excitation produces a state-dependent net leak, which maintains weak activation and increasingly constrains stronger activation. Second, pursuit and withdrawal are conceptualized as competing threshold-regulated outcomes within the same accumulation system. Third, accumulator states can be retained and transferred across decision episodes, thereby influencing subsequent decisions. Previous decision outcomes may update both immediate and distal evidence assigned to each alternative. With these extensions, the SL-2B model is positioned to describe and predict ongoing goal pursuit involving progress, resource expenditure, and feedback, particularly in contexts where previous decisions remain relevant to current choices.</p>
               <p>The experimental protocol employs a 2×2 factorial design to empirically test these mechanisms. The experiment utilizes a foldback branching narrative game within an illusion of choice framework. The narrative objective is to reach safety before an approaching typhoon. To achieve this, participants select one of four strategies at each decision episode, each associated with a distinct pursuit index level. The task manipulates two independent variables, the Time Horizon, defined as the length of the journey; and Progress Visibility, indicating whether progress feedback is immediately available. For all four conditions, each participant's strategy choices, response latency, progress, and remaining game resources are recorded for each decision episode. This task is designed to provide a testable account of how accumulated evidence regulates persistence, strategy adjustment, and withdrawal during extended goal pursuit while maintaining ecological validity.</p>
             </div>
-            <div class="thumbstrip">
-              <img src="assets/prologue_v21.png" alt="SL-2B prologue scene" />
-              <img src="assets/epilogue_living_room_v28.png" alt="SL-2B epilogue scene" />
+            <div class="gallery">
+              <div class="gallery-head">
+                <span class="label">Scenes from the journey — scroll to explore</span>
+                <span class="gallery-nav">
+                  <button type="button" aria-label="Previous scenes" onclick="this.closest('.gallery').querySelector('.gallery-track').scrollBy({left: -this.closest('.gallery').querySelector('.slide').offsetWidth - 14, behavior:'smooth'})">‹</button>
+                  <button type="button" aria-label="Next scenes" onclick="this.closest('.gallery').querySelector('.gallery-track').scrollBy({left: this.closest('.gallery').querySelector('.slide').offsetWidth + 14, behavior:'smooth'})">›</button>
+                </span>
+              </div>
+              <div class="gallery-track">
+                <figure class="slide"><img src="assets/scene_01.png" alt="Scene 1" loading="lazy" /><figcaption class="cap">Scene 1 · Setting Out</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_02.png" alt="Scene 2" loading="lazy" /><figcaption class="cap">Scene 2</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_03.png" alt="Scene 3" loading="lazy" /><figcaption class="cap">Scene 3</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_04.png" alt="Scene 4" loading="lazy" /><figcaption class="cap">Scene 4</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_05.png" alt="Scene 5" loading="lazy" /><figcaption class="cap">Scene 5</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_06.png" alt="Scene 6" loading="lazy" /><figcaption class="cap">Scene 6</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_07.png" alt="Scene 7" loading="lazy" /><figcaption class="cap">Scene 7</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_08.png" alt="Scene 8" loading="lazy" /><figcaption class="cap">Scene 8</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_09.png" alt="Scene 9" loading="lazy" /><figcaption class="cap">Scene 9</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_10.png" alt="Scene 10" loading="lazy" /><figcaption class="cap">Scene 10</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_11.png" alt="Scene 11" loading="lazy" /><figcaption class="cap">Scene 11</figcaption></figure>
+                <figure class="slide"><img src="assets/scene_12.png" alt="Scene 12" loading="lazy" /><figcaption class="cap">Scene 12 · Arrival</figcaption></figure>
+              </div>
             </div>
             <p style="margin-top:20px; display:flex; flex-wrap:wrap; gap:12px;">
               <a class="btn" href="https://github.com/Jiaqi-Hong/ait_-_sl-2b">View the code &amp; materials on GitHub →</a>
