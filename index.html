@@ -76,9 +76,8 @@
     .hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 36ch; margin: 0 0 24px; }
     .avatar {
       width: 172px; height: 172px; border-radius: 50%;
-      object-fit: cover; border: 4px solid var(--surface);
+      object-fit: cover; object-position: center 30%; border: 4px solid var(--surface);
       box-shadow: var(--shadow);
-      image-rendering: pixelated;
       background: var(--surface-2);
     }
     @media (max-width: 720px) { .avatar { width: 120px; height: 120px; } }
@@ -138,6 +137,12 @@
     .thumbstrip img { width: 100%; border-radius: 10px; border: 1px solid var(--line); image-rendering: pixelated; display: block; }
     @media (max-width: 640px) { .thumbstrip { grid-template-columns: 1fr; } }
 
+    /* Abstract */
+    .abstract { background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 12px; padding: 20px 22px; margin: 20px 0 22px; }
+    .abstract-label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-2); font-weight: 600; margin-bottom: 10px; }
+    .abstract p { font-size: 15px; line-height: 1.72; color: var(--text); margin: 0 0 12px; }
+    .abstract p:last-child { margin-bottom: 0; }
+
     /* Publications */
     .pub { padding: 18px 0; border-bottom: 1px solid var(--line); }
     .pub:last-child { border-bottom: none; }
@@ -184,7 +189,7 @@
             <a class="btn" href="#contact">Get in touch</a>
           </div>
         </div>
-        <img class="avatar" src="assets/player_v21.png" alt="Jiaqi Hong" />
+        <img class="avatar" src="assets/profile.jpg" alt="Jiaqi Hong" onerror="this.onerror=null;this.src='assets/player_v21.png';" />
       </div>
     </div>
 
@@ -206,13 +211,12 @@
           <p>My research connects classic questions in judgment and decision-making to rich, interactive tasks. Broad themes:</p>
         </div>
         <div class="tags">
-          <span class="tag">Decision-making under uncertainty</span>
-          <span class="tag">Goal pursuit &amp; persistence</span>
-          <span class="tag">Strategy choice &amp; withdrawal</span>
-          <span class="tag">Risk &amp; time-pressured choice</span>
-          <span class="tag">Computational modeling</span>
-          <span class="tag">Experimental design</span>
-          <span class="tag">Behavioral data &amp; reaction time</span>
+          <span class="tag">Mathematical Psychology</span>
+          <span class="tag">Computational Cognitive Science</span>
+          <span class="tag">Psychological &amp; Behavioral Sciences</span>
+          <span class="tag">Experimental Psychology</span>
+          <span class="tag">Decision-Making &amp; Judgements</span>
+          <span class="tag">Sequential Sampling Models</span>
         </div>
       </section>
 
@@ -261,13 +265,11 @@
             <h3>The Typhoon Crossing (SL-2B)</h3>
             <p class="sub">An interactive-narrative experiment on evacuation decision-making under an approaching disaster.</p>
             <p>Participants play through a fictional journey: two siblings must cross fourteen leagues of river, marsh, and mountain to reach a shelter station before the typhoon <em>Grey Heron</em> makes landfall. At each scene they choose one of four actions, trading off <strong>progress, energy,</strong> and <strong>supplies</strong> while a pace-flag marks how far ahead of the storm they are. The task captures every choice, its reaction time, resource changes, and moments of withdrawal.</p>
-            <div class="meta-grid">
-              <div class="meta"><div class="k">Design</div><div class="v">2 × 2 between-subjects</div></div>
-              <div class="meta"><div class="k">Factors</div><div class="v">Journey · Information</div></div>
-              <div class="meta"><div class="k">Platform</div><div class="v">PsychoPy</div></div>
-              <div class="meta"><div class="k">Measures</div><div class="v">Choice · RT · Resources</div></div>
+            <div class="abstract">
+              <div class="abstract-label">Abstract</div>
+              <p>This study extends the Drift Diffusion Model (DDM) and Leaky Competing Accumulator (LCA) models for action initiation by introducing the State-Dependent Leak, Two-Boundary (SL-2B) sequential sampling model for dynamic strategy regulation. The SL-2B model is advanced in three primary directions. First, bounded recurrent excitation produces a state-dependent net leak, which maintains weak activation and increasingly constrains stronger activation. Second, pursuit and withdrawal are conceptualized as competing threshold-regulated outcomes within the same accumulation system. Third, accumulator states can be retained and transferred across decision episodes, thereby influencing subsequent decisions. Previous decision outcomes may update both immediate and distal evidence assigned to each alternative. With these extensions, the SL-2B model is positioned to describe and predict ongoing goal pursuit involving progress, resource expenditure, and feedback, particularly in contexts where previous decisions remain relevant to current choices.</p>
+              <p>The experimental protocol employs a 2×2 factorial design to empirically test these mechanisms. The experiment utilizes a foldback branching narrative game within an illusion of choice framework. The narrative objective is to reach safety before an approaching typhoon. To achieve this, participants select one of four strategies at each decision episode, each associated with a distinct pursuit index level. The task manipulates two independent variables, the Time Horizon, defined as the length of the journey; and Progress Visibility, indicating whether progress feedback is immediately available. For all four conditions, each participant's strategy choices, response latency, progress, and remaining game resources are recorded for each decision episode. This task is designed to provide a testable account of how accumulated evidence regulates persistence, strategy adjustment, and withdrawal during extended goal pursuit while maintaining ecological validity.</p>
             </div>
-            <p>Conditions cross <strong>journey length</strong> (Long vs. Short) with <strong>information availability</strong> (Hidden vs. Visible map signal), letting me isolate how uncertainty and horizon length reshape risk-taking and persistence. The study runs a full consent → practice → task → debrief flow, with participant-controlled data retention.</p>
             <div class="thumbstrip">
               <img src="assets/prologue_v21.png" alt="SL-2B prologue scene" />
               <img src="assets/epilogue_living_room_v28.png" alt="SL-2B epilogue scene" />
