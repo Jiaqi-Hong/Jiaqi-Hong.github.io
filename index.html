@@ -110,11 +110,16 @@
     .tag { padding: 7px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 500; }
 
     /* Awards */
-    .award { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .award { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: center; }
     .award:last-child { border-bottom: none; }
-    .award .yr-badge { flex: 0 0 auto; font-family: "Fraunces", serif; font-weight: 600; color: var(--accent-2); font-size: 15px; min-width: 46px; }
+    .award .yr-badge { flex: 0 0 auto; align-self: flex-start; margin-top: 2px; font-family: "Fraunces", serif; font-weight: 600; color: var(--accent-2); font-size: 15px; min-width: 46px; }
+    .award .body { flex: 1 1 auto; }
     .award .body .t { font-weight: 600; }
     .award .body .d { color: var(--muted); font-size: 15px; }
+    .award .cert { flex: 0 0 auto; margin-left: 12px; line-height: 0; border-radius: 8px; }
+    .award .cert img { width: 92px; height: 64px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); box-shadow: var(--shadow); transition: transform .12s ease, box-shadow .12s ease; }
+    .award .cert:hover img { transform: scale(1.04); box-shadow: 0 6px 18px rgba(31,35,40,.18); }
+    @media (max-width: 520px) { .award .cert img { width: 70px; height: 50px; } }
 
     /* Project card */
     .project {
@@ -265,6 +270,7 @@
             <div class="t">International Psychology Olympiad</div>
             <div class="d">Highest Distinction</div>
           </div>
+          <a class="cert" href="assets/awards/intl-psychology-olympiad.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/intl-psychology-olympiad.jpg" alt="Certificate — International Psychology Olympiad" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
         </div>
         <div class="award">
           <div class="yr-badge">2026</div>
@@ -272,6 +278,7 @@
             <div class="t">British Psychology Olympiad</div>
             <div class="d">Medal Grand Slam · Global Gold Medalist</div>
           </div>
+          <a class="cert" href="assets/awards/british-psychology-olympiad.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/british-psychology-olympiad.jpg" alt="Certificate — British Psychology Olympiad" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
         </div>
         <div class="award">
           <div class="yr-badge">2026</div>
@@ -279,6 +286,7 @@
             <div class="t">Berkeley Psychology Tournament</div>
             <div class="d">Medal Grand Slam · Quadruple Gold Medalist · National Champion</div>
           </div>
+          <a class="cert" href="assets/awards/berkeley-psychology-tournament.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/berkeley-psychology-tournament.jpg" alt="Certificate — Berkeley Psychology Tournament" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
         </div>
         <div class="award">
           <div class="yr-badge">2026</div>
@@ -286,6 +294,7 @@
             <div class="t">Einhorn-Hogarth New Investigator Award</div>
             <div class="d">Candidate</div>
           </div>
+          <a class="cert" href="assets/awards/einhorn-hogarth-award.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/einhorn-hogarth-award.jpg" alt="Certificate — Einhorn-Hogarth New Investigator Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
         </div>
       </section>
 
