@@ -110,16 +110,17 @@
     .tag { padding: 7px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 500; }
 
     /* Awards */
-    .award { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: center; }
+    .award { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
     .award:last-child { border-bottom: none; }
-    .award .yr-badge { flex: 0 0 auto; align-self: flex-start; margin-top: 2px; font-family: "Fraunces", serif; font-weight: 600; color: var(--accent-2); font-size: 15px; min-width: 46px; }
-    .award .body { flex: 1 1 auto; }
+    .award .yr-badge { flex: 0 0 auto; margin-top: 2px; font-family: "Fraunces", serif; font-weight: 600; color: var(--accent-2); font-size: 15px; min-width: 46px; }
+    .award .body { flex: 1 1 auto; min-width: 0; }
     .award .body .t { font-weight: 600; }
     .award .body .d { color: var(--muted); font-size: 15px; }
-    .award .cert { flex: 0 0 auto; margin-left: 12px; line-height: 0; border-radius: 8px; }
-    .award .cert img { width: 92px; height: 64px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); box-shadow: var(--shadow); transition: transform .12s ease, box-shadow .12s ease; }
-    .award .cert:hover img { transform: scale(1.04); box-shadow: 0 6px 18px rgba(31,35,40,.18); }
-    @media (max-width: 520px) { .award .cert img { width: 70px; height: 50px; } }
+    .certs { flex: 0 0 auto; margin-left: 14px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; max-width: 262px; }
+    .certs .cert { line-height: 0; border-radius: 8px; }
+    .certs .cert img { width: 78px; height: 56px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); box-shadow: var(--shadow); transition: transform .12s ease, box-shadow .12s ease; }
+    .certs .cert:hover img { transform: scale(1.05); box-shadow: 0 6px 18px rgba(31,35,40,.18); }
+    @media (max-width: 620px) { .certs { max-width: 172px; margin-left: 10px; } .certs .cert img { width: 66px; height: 48px; } }
 
     /* Project card */
     .project {
@@ -270,7 +271,10 @@
             <div class="t">International Psychology Olympiad</div>
             <div class="d">Highest Distinction</div>
           </div>
-          <a class="cert" href="assets/awards/intl-psychology-olympiad.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/intl-psychology-olympiad.jpg" alt="Certificate — International Psychology Olympiad" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+          <div class="certs">
+            <a class="cert" href="assets/awards/ipsyo-highest-distinction.jpg" target="_blank" rel="noopener" title="Certificate of Achievement — Highest Distinction"><img src="assets/awards/ipsyo-highest-distinction.jpg" alt="IPSYO Certificate of Achievement — Highest Distinction" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+            <a class="cert" href="assets/awards/ipsyo-participation.jpg" target="_blank" rel="noopener" title="Certificate of Participation — score breakdown"><img src="assets/awards/ipsyo-participation.jpg" alt="IPSYO Certificate of Participation" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+          </div>
         </div>
         <div class="award">
           <div class="yr-badge">2026</div>
@@ -278,7 +282,14 @@
             <div class="t">British Psychology Olympiad</div>
             <div class="d">Medal Grand Slam · Global Gold Medalist</div>
           </div>
-          <a class="cert" href="assets/awards/british-psychology-olympiad.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/british-psychology-olympiad.jpg" alt="Certificate — British Psychology Olympiad" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+          <div class="certs">
+            <a class="cert" href="assets/awards/bpo-essay-gold.jpg" target="_blank" rel="noopener" title="Psychology Essay Competition — Gold Award"><img src="assets/awards/bpo-essay-gold.jpg" alt="BPO Psychology Essay Competition — Gold Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+            <a class="cert" href="assets/awards/bpo-games-silver.jpg" target="_blank" rel="noopener" title="Psychology in Games — Silver Award"><img src="assets/awards/bpo-games-silver.jpg" alt="BPO Psychology in Games — Silver Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+            <a class="cert" href="assets/awards/bpo-showcase-silver-team.jpg" target="_blank" rel="noopener" title="Psychology Experiment Showcase — Silver Award (Team)"><img src="assets/awards/bpo-showcase-silver-team.jpg" alt="BPO Psychology Experiment Showcase — Silver Award (Team)" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+            <a class="cert" href="assets/awards/bpo-written-silver.jpg" target="_blank" rel="noopener" title="Psychology Written Test — Silver Award"><img src="assets/awards/bpo-written-silver.jpg" alt="BPO Psychology Written Test — Silver Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+            <a class="cert" href="assets/awards/bpo-blitz-bronze.jpg" target="_blank" rel="noopener" title="Psychology Blitz — Bronze Award"><img src="assets/awards/bpo-blitz-bronze.jpg" alt="BPO Psychology Blitz — Bronze Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+            <a class="cert" href="assets/awards/bpo-qualification.jpg" target="_blank" rel="noopener" title="Certificate of Qualification — National Round"><img src="assets/awards/bpo-qualification.jpg" alt="BPO Certificate of Qualification — National Round" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+          </div>
         </div>
         <div class="award">
           <div class="yr-badge">2026</div>
@@ -286,7 +297,9 @@
             <div class="t">Berkeley Psychology Tournament</div>
             <div class="d">Medal Grand Slam · Quadruple Gold Medalist · National Champion</div>
           </div>
-          <a class="cert" href="assets/awards/berkeley-psychology-tournament.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/berkeley-psychology-tournament.jpg" alt="Certificate — Berkeley Psychology Tournament" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+          <div class="certs">
+            <a class="cert" href="assets/awards/berkeley-psychology-tournament.jpg" target="_blank" rel="noopener" title="Certificate of Award — Berkeley Psychology Tournament"><img src="assets/awards/berkeley-psychology-tournament.jpg" alt="Berkeley Psychology Tournament — Certificate of Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
+          </div>
         </div>
         <div class="award">
           <div class="yr-badge">2026</div>
@@ -294,7 +307,6 @@
             <div class="t">Einhorn-Hogarth New Investigator Award</div>
             <div class="d">Candidate</div>
           </div>
-          <a class="cert" href="assets/awards/einhorn-hogarth-award.jpg" target="_blank" rel="noopener" title="View certificate"><img src="assets/awards/einhorn-hogarth-award.jpg" alt="Certificate — Einhorn-Hogarth New Investigator Award" loading="lazy" onerror="this.closest('.cert').remove()" /></a>
         </div>
       </section>
 
